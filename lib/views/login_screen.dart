@@ -16,6 +16,10 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
 
+    void showAlertDialog(BuildContext context) {
+      showDialog(context: context, builder: (BuildContext context) {});
+    }
+
     final logo = Image.asset(
       'assets/logo.png',
       fit: BoxFit.contain,
