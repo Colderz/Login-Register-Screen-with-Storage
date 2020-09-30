@@ -29,6 +29,7 @@ class OpeningScreen extends StatelessWidget {
         ),
       ),
     );
+
     final registerButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25),
