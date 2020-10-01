@@ -17,7 +17,17 @@ class _LoginScreenState extends State<LoginScreen> {
     final mq = MediaQuery.of(context);
 
     void showAlertDialog(BuildContext context) {
-      showDialog(context: context, builder: (BuildContext context) {});
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return Dialog(
+                child: Container(
+              height: mq.size.height / 4,
+              width: mq.size.width / 1.2,
+              color: Colors.white,
+              child: Center(child: Text('Test Dialog')),
+            ));
+          });
     }
 
     final logo = Image.asset(
@@ -68,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     .copyWith(color: Colors.black),
               ),
               onPressed: () {
-                // TODO: Zrobic pop-up przypominania hasła
+                showAlertDialog(context);
               },
             )
           ],
