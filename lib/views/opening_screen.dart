@@ -1,7 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:local_storage_first_step/theme/routes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class OpeningScreen extends StatelessWidget {
+class OpeningScreen extends StatefulWidget {
+  @override
+  _OpeningScreenState createState() => _OpeningScreenState();
+}
+
+class _OpeningScreenState extends State<OpeningScreen> {
+  String displayName = "";
+
+  @override
+  void initState() {
+    getData();
+  }
+
+  getData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      displayName = prefs.getString('displayName');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
@@ -16,7 +36,8 @@ class OpeningScreen extends StatelessWidget {
       borderRadius: BorderRadius.circular(25),
       color: Colors.white,
       child: MaterialButton(
-        onPressed: () {
+        onPressed: () async {
+          SharedPreferences prefs = await SharedPreferences.getInstance();
           Navigator.of(context).pushNamed(AppRoutes.authLogin);
         },
         minWidth: mq.size.width / 1.2,

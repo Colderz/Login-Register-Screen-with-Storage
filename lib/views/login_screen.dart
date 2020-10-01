@@ -24,7 +24,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Container(
               height: mq.size.height / 4,
               width: mq.size.width / 1.2,
-              color: Colors.white,
               child: Center(child: Text('Test Dialog')),
             ));
           });
